@@ -1,40 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
-
-import { HomeModule } from './home/home.module';
-import { LoginComponent } from './login/login.component';
+import { WebApiService } from './services/web-api.service';
+import { CommonFunctionModule } from './common/common-function.module';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    LandingComponent,
-    ProfileComponent,
-    NavbarComponent,
-    FooterComponent,
-    LoginComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     NgbModule,
-    FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HttpClientModule,
+    CommonFunctionModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [WebApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

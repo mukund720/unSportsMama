@@ -1,3 +1,5 @@
+<app-dialog-box *ngIf="dialogData.visibility" [dialogData]="dialogData"></app-dialog-box>
+
 <main>
   <section class="section section-shaped section-lg">
     <div class="shape shape-style-1 bg-gradient-default">
@@ -37,13 +39,13 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign up with credentials</small>
               </div>
-              <form role="form">
+              <!-- <form role="form"> -->
                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                    <input class="form-control" id="name" [(ngModel)]="profile.name" placeholder="Name" type="text" (focus)="focus=true" (blur)="focus=false">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -51,7 +53,15 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email" (focus)="focus1=true" (blur)="focus1=false">
+                    <input class="form-control" id="email" [(ngModel)]="profile.email" placeholder="Email" type="email" (focus)="focus1=true" (blur)="focus1=false">
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-mobile-83"></i></span>
+                    </div>
+                    <input class="form-control" id="mobile" [(ngModel)]="profile.mobile" placeholder="mobile" type="text">
                   </div>
                 </div>
                 <div class="form-group" [ngClass]="{'focused':focus2===true}">
@@ -59,7 +69,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false">
+                    <input class="form-control" id="password" [(ngModel)]="profile.password" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false">
                   </div>
                 </div>
                 <div class="text-muted font-italic">
@@ -70,7 +80,7 @@
                 <div class="row my-4">
                   <div class="col-12">
                     <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                      <input id="policy" [(ngModel)]="profile.policy" class="custom-control-input" id="customCheckRegister" type="checkbox">
                       <label class="custom-control-label" for="customCheckRegister">
                         <span>I agree with the
                           <a href="javascript:void(0)">Privacy Policy</a>
@@ -80,9 +90,9 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4">Create account</button>
+                  <button type="button" (click)="createProfile()" class="btn btn-primary mt-4">Create account</button>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { Location, PopStateEvent } from '@angular/common';
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
     public isCollapsed = true;
@@ -53,4 +53,5 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+  
 }
