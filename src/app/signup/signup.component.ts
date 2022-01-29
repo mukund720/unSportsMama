@@ -22,7 +22,23 @@ export class SignupComponent implements OnInit {
         "data": "",
         "type": ""
       }
-    ngOnInit() {}
+    ngOnInit() {
+      this.isActive()
+    }
+    isActive()
+    {
+      let requestObj:any={};
+      this.webService.commonPostMethod('users', requestObj).
+      subscribe(
+        data => {
+          if (data.status) {
+          } else {
+          }
+        },
+        error => {
+        }
+      );
+    }
     createProfile()
     {
         if(this.profile.name==''||this.profile.name==undefined)

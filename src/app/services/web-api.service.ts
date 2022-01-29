@@ -184,10 +184,10 @@ export class WebApiService {
 getAPIEndPoint() {
 
     if (window.location.hostname == "localhost") {
-      this.baseUrl = "https://localhost:3000/";
+      this.baseUrl = "http://localhost:3000/";
     }
     else {
-      this.baseUrl = "https://localhost:3000/";
+      this.baseUrl = "http://localhost:3000/";
     }
   }
 
